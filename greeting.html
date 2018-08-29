@@ -5,6 +5,7 @@
   </head>
   <body>
      <div id="app"></div>
+     <div id="visitedcount"></div>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
@@ -19,9 +20,31 @@
        }
      }
 
+     class Visited extends React.Component {
+       constructor(props){
+         super(props);
+         this.state = {
+           number: 1
+         }
+       }
+       render(){
+         return (
+           <div>
+           <h2>{this.props.name}, You Have Visited {this.state.number} Times. </h2>
+           </div>
+         );
+       }
+     }
+
+
      ReactDOM.render(
        <Greeting name="Illya" />, document.getElementById('app')
      );
+
+     ReactDOM.render (
+       <Visited name="Illya" />, document.getElementById("visitedcount")
+     )
+
      </script>
   </body>
 </html>
